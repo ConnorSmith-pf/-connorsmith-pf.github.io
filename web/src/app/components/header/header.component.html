@@ -1,0 +1,17 @@
+<div class="header-container">
+  <div class="header-container__logo-wrapper">
+    <img
+      src="assets/images/logo.jpg"
+      alt=""
+      class="header-container__logo-wrapper--logo"
+    />
+  </div>
+  <div class="header-container__menu-items" *ngIf="headerButtons">
+    <button
+      *ngFor="let headerButton of headerButtons"
+      (click)="(headerButton.onClick)"
+    >
+      {{ headerButton.displayName }}
+    </button>
+  </div>
+</div>

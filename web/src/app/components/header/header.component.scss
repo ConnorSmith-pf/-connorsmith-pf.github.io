@@ -1,0 +1,25 @@
+.header-container {
+  background-color: red;
+  display: grid;
+  grid-template-areas: "logo menu-items";
+  grid-template-columns: 16rem 1fr;
+  width: 100vw;
+  height: 6rem;
+
+  &__logo-wrapper {
+    grid-area: logo;
+    &--logo {
+      margin: 1rem;
+      width: 14rem;
+      height: 4rem;
+    }
+  }
+
+  &__menu-items-wrapper {
+    grid-area: menu-items;
+
+    &--menu-item {
+      background-color: black;
+    }
+  }
+}
