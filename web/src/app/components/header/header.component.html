@@ -6,7 +6,7 @@
       class="header-container__logo-wrapper--logo"
     />
   </div>
-  <div class="header-container__menu-items" *ngIf="headerButtons">
+  <div class="header-container__menu-items-wrapper" *ngIf="headerButtons">
     <button
       *ngFor="let headerButton of headerButtons"
       (click)="(headerButton.onClick)"

@@ -1,0 +1,3 @@
+@import "~@angular/material/theming";
+@import "./palette.scss";
+@include mat-core(mat-typography-config("Arial"));

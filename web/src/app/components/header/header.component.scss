@@ -17,6 +17,7 @@
 
   &__menu-items-wrapper {
     grid-area: menu-items;
+    display: flex;
 
     &--menu-item {
       background-color: black;
