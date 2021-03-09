@@ -84,27 +84,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThemingService", function() { return ThemingService; });
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
 /* harmony import */ var _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../enums/themes.enum */ "k8RL");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var localforage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! localforage */ "oAJy");
+/* harmony import */ var localforage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(localforage__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
 
 
 
 class ThemingService {
-    constructor() {
-        this.themes = [_enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE, _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE];
+    constructor(ref) {
+        this.ref = ref;
         this.selectedTheme$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](this.preferedTheme);
-    }
-    get preferedTheme() {
-        const darkMode = window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark').matches;
-        return darkMode ? _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE : _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE;
+        this.useSystemTheme$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](true);
+        this.themeListenerEvent = (e) => {
+            const turnOn = e.matches;
+            this.setTheme(turnOn ? _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE : _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE);
+            this.ref.tick();
+        };
+        localforage__WEBPACK_IMPORTED_MODULE_2___default.a.getItem('use-system-theme', (err, value) => {
+            this.setUseSystemTheme(value !== null && value !== void 0 ? value : true);
+        });
     }
     toggleTheme() {
         const currentTheme = this.selectedTheme$.value;
-        this.selectedTheme$.next(currentTheme === _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE ? _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE : _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE);
+        this.setTheme(currentTheme === _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE ? _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE : _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE);
+    }
+    toggleUseSystemTheme() {
+        this.setUseSystemTheme(!this.useSystemTheme$.value);
+    }
+    get preferedTheme() {
+        const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return darkMode ? _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE : _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE;
+    }
+    setUseSystemTheme(shouldUse) {
+        localforage__WEBPACK_IMPORTED_MODULE_2___default.a.setItem('use-system-theme', shouldUse);
+        this.useSystemTheme$.next(shouldUse);
+        if (shouldUse) {
+            this.setTheme(this.preferedTheme);
+            this.setupSystemThemeListener();
+        }
+        else {
+            this.removeSystemThemeListener();
+        }
+    }
+    setupSystemThemeListener() {
+        console.log('Start Event Listener');
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.themeListenerEvent);
+    }
+    removeSystemThemeListener() {
+        console.log('Remove Event Listener');
+        window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', this.themeListenerEvent);
+    }
+    setTheme(themeToSet) {
+        localforage__WEBPACK_IMPORTED_MODULE_2___default.a.setItem('theme', themeToSet);
+        this.selectedTheme$.next(themeToSet);
     }
 }
-ThemingService.ɵfac = function ThemingService_Factory(t) { return new (t || ThemingService)(); };
-ThemingService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: ThemingService, factory: ThemingService.ɵfac, providedIn: 'root' });
+ThemingService.ɵfac = function ThemingService_Factory(t) { return new (t || ThemingService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ApplicationRef"])); };
+ThemingService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({ token: ThemingService, factory: ThemingService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),
@@ -165,31 +202,37 @@ class RootComponent {
         this.themeSubscription = this.themingService.selectedTheme$.subscribe((themeToApply) => {
             this.cssClass = themeToApply;
         });
+        this.useSystemThemeSubscription = this.themingService.useSystemTheme$.subscribe((useSystemTheme) => { });
     }
     ngOnDestroy() {
-        var _a;
+        var _a, _b;
         (_a = this.themeSubscription) === null || _a === void 0 ? void 0 : _a.unsubscribe;
+        (_b = this.useSystemThemeSubscription) === null || _b === void 0 ? void 0 : _b.unsubscribe();
     }
 }
 RootComponent.ɵfac = function RootComponent_Factory(t) { return new (t || RootComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_theming_service__WEBPACK_IMPORTED_MODULE_1__["ThemingService"])); };
 RootComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RootComponent, selectors: [["pf-root"]], hostVars: 2, hostBindings: function RootComponent_HostBindings(rf, ctx) { if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.cssClass);
-    } }, decls: 11, vars: 0, consts: [[1, "mat-app-background"], ["mat-raised-button", "", 3, "click"], [1, "light-theme"], ["mat-raised-button", "", "color", "primary"], ["mat-raised-button", "", "color", "accent"], ["mat-raised-button", "", "color", "warn"]], template: function RootComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 13, vars: 0, consts: [[1, "mat-app-background"], ["mat-raised-button", "", 3, "click"], [1, "light-theme"], ["mat-raised-button", "", "color", "primary"], ["mat-raised-button", "", "color", "accent"], ["mat-raised-button", "", "color", "warn"]], template: function RootComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function RootComponent_Template_button_click_1_listener() { return ctx.themingService.toggleTheme(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " Toggle Theme ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Toggle Theme");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-card", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, " Main Theme: ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "button", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Primary");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function RootComponent_Template_button_click_3_listener() { return ctx.themingService.toggleUseSystemTheme(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Toggle Use System Theme");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "button", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Accent");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "mat-card", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " Main Theme: ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "button", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Primary");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Warning");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Accent");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Warning");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
