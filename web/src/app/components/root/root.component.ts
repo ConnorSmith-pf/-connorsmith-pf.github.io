@@ -14,18 +14,19 @@ export class RootComponent implements OnInit {
   public title = 'pf';
 
   private themeSubscription: Subscription;
+  private useSystemThemeSubscription: Subscription;
 
   constructor(public readonly themingService: ThemingService) {}
 
   public ngOnInit(): void {
-    this.themeSubscription = this.themingService.selectedTheme$.subscribe(
-      (themeToApply: Theme) => {
-        this.cssClass = themeToApply;
-      }
-    );
+    this.themeSubscription = this.themingService.selectedTheme$.subscribe((themeToApply: Theme) => {
+      this.cssClass = themeToApply;
+    });
+    this.useSystemThemeSubscription = this.themingService.useSystemTheme$.subscribe((useSystemTheme: boolean) => {});
   }
 
   public ngOnDestroy(): void {
     this.themeSubscription?.unsubscribe;
+    this.useSystemThemeSubscription?.unsubscribe();
   }
 }

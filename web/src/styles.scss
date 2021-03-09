@@ -10,9 +10,9 @@
   @include root-styles($theme);
 }
 
-.light-theme {
-  @include angular-material-theme($light-theme);
+@include angular-material-theme($light-theme);
 
+.light-theme {
   @include component-themes($light-theme);
 }
 
