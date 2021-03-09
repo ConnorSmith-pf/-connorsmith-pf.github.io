@@ -1,9 +1,9 @@
-@import "~@angular/material/theming";
-@import "./light-palette.scss";
-@import "./dark-palette.scss";
-@import "./warn-palette.scss";
+@import '~@angular/material/theming';
+@import './light-palette.scss';
+@import './dark-palette.scss';
+@import './warn-palette.scss';
 
-@include mat-core(mat-typography-config("Arial"));
+@include mat-core(mat-typography-config('Arial'));
 
 // Light theme, mat-palette($palette-name, main, lighter, darker)
 // 500, 100, 700 are default values for main, lighter and darker params
@@ -15,7 +15,7 @@ $light-theme: mat-light-theme(
     color: (
       primary: $light-primary,
       accent: $light-accent,
-      warn: null,
+      warn: $light-warn,
     ),
   )
 );
@@ -33,12 +33,3 @@ $dark-theme: mat-dark-theme(
     ),
   )
 );
-
-// $my-app-primary: mat-palette($mat-blue-grey);
-// $my-app-accent: mat-palette($mat-pink, 500, 900, A100);
-// $my-app-warn: mat-palette($mat-deep-orange);
-// $light-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-
-// $alternate-primary: mat-palette($mat-light-blue);
-// $alternate-accent: mat-palette($mat-yellow, 400);
-// $dark-theme: mat-light-theme($alternate-primary, $alternate-accent);

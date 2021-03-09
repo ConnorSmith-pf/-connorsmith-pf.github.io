@@ -1,6 +1,6 @@
-@import "app/styles/theme.scss";
+@import 'app/styles/theme.scss';
 
-@import "app/components/root/root.component.scss";
+@import 'app/components/root/root.component.scss';
 
 @mixin component-themes($theme) {
   $primary: map-get($theme, primary) !global;
@@ -20,4 +20,9 @@
   @include angular-material-theme($dark-theme);
 
   @include component-themes($dark-theme);
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
 }
