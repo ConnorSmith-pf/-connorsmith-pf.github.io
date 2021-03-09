@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "homepage": "https://connorsmith-pf.github.io/",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

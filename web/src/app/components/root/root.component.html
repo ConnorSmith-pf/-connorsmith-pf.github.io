@@ -1,1 +1,12 @@
-<pf-header></pf-header>
+<!-- <pf-header></pf-header> -->
+<div class="mat-app-background">
+  <button mat-raised-button (click)="themingService.toggleTheme()">
+    Toggle Theme
+  </button>
+  <mat-card class="light-theme">
+    Main Theme:
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warning</button>
+  </mat-card>
+</div>
