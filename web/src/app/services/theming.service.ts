@@ -10,6 +10,7 @@ export class ThemingService {
   public selectedTheme$: BehaviorSubject<Theme> = new BehaviorSubject<Theme>(this.preferedTheme);
   public useSystemTheme$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
+  private _darkModeMedia: MediaQueryList;
   private themeListenerEvent = (e: MediaQueryListEvent) => {
     const turnOn: boolean = e.matches;
 
@@ -33,8 +34,15 @@ export class ThemingService {
   }
 
   public get preferedTheme(): Theme {
-    const darkMode: boolean = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const darkMode: boolean = window.matchMedia && this.mediaQueryList.matches;
     return darkMode ? Theme.DARK_MODE : Theme.LIGHT_MODE;
+  }
+
+  private get mediaQueryList(): MediaQueryList {
+    if (!this._darkModeMedia) {
+      this._darkModeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+    }
+    return this._darkModeMedia;
   }
 
   private setUseSystemTheme(shouldUse: boolean): void {
@@ -51,12 +59,12 @@ export class ThemingService {
 
   private setupSystemThemeListener(): void {
     console.log('Start Event Listener');
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.themeListenerEvent);
+    this.mediaQueryList.addEventListener('change', this.themeListenerEvent);
   }
 
   private removeSystemThemeListener(): void {
     console.log('Remove Event Listener');
-    window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', this.themeListenerEvent);
+    this.mediaQueryList.removeEventListener('change', this.themeListenerEvent);
   }
 
   private setTheme(themeToSet: Theme) {
