@@ -1,2 +1,31 @@
 @mixin root-styles($theme) {
+  $header-min-height: 4rem;
+  $header-max-height: 7.5rem;
+
+  .container {
+    display: grid;
+    grid-template-areas:
+      'header header'
+      'left-side-panel content';
+    grid-template-rows: minmax($header-min-height, $header-max-height) 1fr;
+    grid-template-columns: minmax(0, 20rem) 1fr;
+    height: 100vh;
+
+    &__header {
+      grid-area: header;
+      height: $header-max-height;
+      max-height: $header-max-height;
+      background-color: mat-color($primary);
+    }
+
+    &__left-side-panel {
+      grid-area: left-side-panel;
+      background-color: mat-color($accent);
+    }
+
+    &__content {
+      grid-area: content;
+      background-color: mat-color($accent, 50);
+    }
+  }
 }

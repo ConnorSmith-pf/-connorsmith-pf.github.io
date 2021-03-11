@@ -24,8 +24,6 @@ describe('RootComponent', () => {
     const fixture = TestBed.createComponent(RootComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'pf app is running!'
-    );
+    expect(compiled.querySelector('.content span').textContent).toContain('pf app is running!');
   });
 });

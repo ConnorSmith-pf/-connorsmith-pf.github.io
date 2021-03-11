@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { RootComponent } from './root.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+import { LeftSidePanelModule } from '../left-side-panel/left-side-panel.module';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [RootComponent],
-  imports: [MatButtonModule, MatCardModule, FormsModule, HeaderModule],
+  imports: [FormsModule, RouterModule, CommonModule, HeaderModule, LeftSidePanelModule],
 })
 export class RootModule {}
