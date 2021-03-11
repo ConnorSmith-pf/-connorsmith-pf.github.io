@@ -5,6 +5,10 @@
 @import 'app/components/header/header.component.scss';
 @import 'app/components/left-side-panel/left-side-panel.component.scss';
 
+$primary: null;
+$accent: null;
+$warn: null;
+
 @mixin component-themes($theme) {
   $primary: map-get($theme, primary) !global;
   $accent: map-get($theme, accent) !global;
@@ -22,7 +26,7 @@
 }
 
 .dark-theme {
-  @include angular-material-theme($dark-theme);
+  @include angular-material-color($dark-theme);
 
   @include component-themes($dark-theme);
 }
