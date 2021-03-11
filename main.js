@@ -106,6 +106,9 @@ class ThemingService {
         });
     }
     toggleTheme() {
+        if (this.useSystemTheme$.value) {
+            return;
+        }
         const currentTheme = this.selectedTheme$.value;
         this.setTheme(currentTheme === _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE ? _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE : _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE);
     }
@@ -113,8 +116,14 @@ class ThemingService {
         this.setUseSystemTheme(!this.useSystemTheme$.value);
     }
     get preferedTheme() {
-        const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const darkMode = window.matchMedia && this.mediaQueryList.matches;
         return darkMode ? _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].DARK_MODE : _enums_themes_enum__WEBPACK_IMPORTED_MODULE_1__["Theme"].LIGHT_MODE;
+    }
+    get mediaQueryList() {
+        if (!this._darkModeMedia) {
+            this._darkModeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+        }
+        return this._darkModeMedia;
     }
     setUseSystemTheme(shouldUse) {
         localforage__WEBPACK_IMPORTED_MODULE_2___default.a.setItem('use-system-theme', shouldUse);
@@ -129,11 +138,11 @@ class ThemingService {
     }
     setupSystemThemeListener() {
         console.log('Start Event Listener');
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.themeListenerEvent);
+        this.mediaQueryList.addEventListener('change', this.themeListenerEvent);
     }
     removeSystemThemeListener() {
         console.log('Remove Event Listener');
-        window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', this.themeListenerEvent);
+        this.mediaQueryList.removeEventListener('change', this.themeListenerEvent);
     }
     setTheme(themeToSet) {
         localforage__WEBPACK_IMPORTED_MODULE_2___default.a.setItem('theme', themeToSet);
