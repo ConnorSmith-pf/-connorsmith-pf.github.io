@@ -1,17 +1,22 @@
-<div class="header-container">
+<header class="header-container">
   <div class="header-container__logo-wrapper">
-    <img
-      src="assets/images/logo.jpg"
-      alt=""
-      class="header-container__logo-wrapper--logo"
-    />
+    <img src="assets/images/logo.jpg" alt="" class="header-container__logo-wrapper--logo" />
   </div>
-  <div class="header-container__menu-items-wrapper" *ngIf="headerButtons">
-    <button
-      *ngFor="let headerButton of headerButtons"
-      (click)="(headerButton.onClick)"
-    >
+  <div class="header-container__menu-items--left" *ngIf="headerButtons">
+    <button *ngFor="let headerButton of headerButtons" (click)="(headerButton.onClick)">
       {{ headerButton.displayName }}
     </button>
   </div>
-</div>
+  <div class="header-container__menu-items--right">
+    <mat-slide-toggle
+      [disabled]="themingService.useSystemTheme$ | async"
+      [checked]="darkThemeSelected"
+      (change)="themingService.toggleTheme()"
+    >
+      Dark Theme
+    </mat-slide-toggle>
+    <mat-slide-toggle [checked]="themingService.useSystemTheme$ | async" (change)="themingService.toggleUseSystemTheme()">
+      Use System Theme
+    </mat-slide-toggle>
+  </div>
+</header>
