@@ -1,3 +1,4 @@
+@import 'app/styles/globals.scss';
 @import 'app/styles/theme.scss';
 
 @import 'app/components/root/root.component.scss';
@@ -20,9 +21,4 @@
   @include angular-material-theme($dark-theme);
 
   @include component-themes($dark-theme);
-}
-
-body {
-  margin: 0;
-  font-family: Arial;
 }

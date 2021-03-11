@@ -25,6 +25,10 @@ export class ThemingService {
   }
 
   public toggleTheme(): void {
+    if (this.useSystemTheme$.value) {
+      return;
+    }
+
     const currentTheme: Theme = this.selectedTheme$.value;
     this.setTheme(currentTheme === Theme.DARK_MODE ? Theme.LIGHT_MODE : Theme.DARK_MODE);
   }
