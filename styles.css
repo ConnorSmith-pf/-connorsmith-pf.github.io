@@ -3513,10 +3513,6 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   border: solid 1px rgba(255, 255, 255, 0.12);
 }
 
-.dark-theme .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
-  line-height: 48px;
-}
-
 .dark-theme .mat-card {
   background: #424242;
   color: white;
@@ -3958,14 +3954,6 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   color: inherit;
 }
 
-.dark-theme .mat-expansion-panel-header {
-  height: 48px;
-}
-
-.dark-theme .mat-expansion-panel-header.mat-expanded {
-  height: 64px;
-}
-
 .dark-theme .mat-form-field-label {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -4261,10 +4249,6 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .dark-theme .mat-icon-button[disabled] .mat-paginator-first,
 .dark-theme .mat-icon-button[disabled] .mat-paginator-last {
   border-color: rgba(255, 255, 255, 0.5);
-}
-
-.dark-theme .mat-paginator-container {
-  min-height: 56px;
 }
 
 .dark-theme .mat-progress-bar-background {
@@ -4679,28 +4663,6 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   border-top-color: rgba(255, 255, 255, 0.12);
 }
 
-.dark-theme .mat-horizontal-stepper-header {
-  height: 72px;
-}
-
-.dark-theme .mat-stepper-label-position-bottom .mat-horizontal-stepper-header,
-.dark-theme .mat-vertical-stepper-header {
-  padding: 24px 24px;
-}
-
-.dark-theme .mat-stepper-vertical-line::before {
-  top: -16px;
-  bottom: -16px;
-}
-
-.dark-theme .mat-stepper-label-position-bottom .mat-horizontal-stepper-header::after, .dark-theme .mat-stepper-label-position-bottom .mat-horizontal-stepper-header::before {
-  top: 36px;
-}
-
-.dark-theme .mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
-  top: 36px;
-}
-
 .dark-theme .mat-sort-header-arrow {
   color: #c6c6c6;
 }
@@ -4938,23 +4900,6 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   caret-color: currentColor;
 }
 
-.dark-theme .mat-toolbar-multiple-rows {
-  min-height: 64px;
-}
-
-.dark-theme .mat-toolbar-row, .dark-theme .mat-toolbar-single-row {
-  height: 64px;
-}
-
-@media (max-width: 599px) {
-  .dark-theme .mat-toolbar-multiple-rows {
-    min-height: 56px;
-  }
-  .dark-theme .mat-toolbar-row, .dark-theme .mat-toolbar-single-row {
-    height: 56px;
-  }
-}
-
 .dark-theme .mat-tooltip {
   background: rgba(97, 97, 97, 0.9);
 }
@@ -4966,10 +4911,6 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .dark-theme .mat-tree-node,
 .dark-theme .mat-nested-tree-node {
   color: white;
-}
-
-.dark-theme .mat-tree-node {
-  min-height: 48px;
 }
 
 .dark-theme .mat-snack-bar-container {
