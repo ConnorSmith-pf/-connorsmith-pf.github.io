@@ -2849,6 +2849,58 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   color: #c5c5c5;
 }
 
+.light-theme .container {
+  display: grid;
+  grid-template-areas: "header header" "left-side-panel content";
+  grid-template-rows: minmax(4rem, 7.5rem) 1fr;
+  grid-template-columns: minmax(0, 20rem) 1fr;
+  height: 100vh;
+}
+
+.light-theme .container__header {
+  grid-area: header;
+  height: 7.5rem;
+  max-height: 7.5rem;
+  background-color: #8a8a8a;
+}
+
+.light-theme .container__left-side-panel {
+  grid-area: left-side-panel;
+  background-color: #c5c5c5;
+}
+
+.light-theme .container__content {
+  grid-area: content;
+  background-color: #f1f1f1;
+}
+
+.light-theme .header-container {
+  display: grid;
+  grid-template-areas: "logo menu-items";
+  grid-template-columns: 16rem 1fr;
+  width: 100vw;
+  height: 6rem;
+}
+
+.light-theme .header-container__logo-wrapper {
+  grid-area: logo;
+}
+
+.light-theme .header-container__logo-wrapper--logo {
+  margin: 1rem;
+  width: 14rem;
+  height: 4rem;
+}
+
+.light-theme .header-container__menu-items-wrapper {
+  grid-area: menu-items;
+  display: flex;
+}
+
+.light-theme .header-container__menu-items-wrapper--menu-item {
+  background-color: black;
+}
+
 .dark-theme .mat-ripple-element {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -4928,6 +4980,58 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 .dark-theme .mat-simple-snackbar-action {
   color: inherit;
+}
+
+.dark-theme .container {
+  display: grid;
+  grid-template-areas: "header header" "left-side-panel content";
+  grid-template-rows: minmax(4rem, 7.5rem) 1fr;
+  grid-template-columns: minmax(0, 20rem) 1fr;
+  height: 100vh;
+}
+
+.dark-theme .container__header {
+  grid-area: header;
+  height: 7.5rem;
+  max-height: 7.5rem;
+  background-color: #222222;
+}
+
+.dark-theme .container__left-side-panel {
+  grid-area: left-side-panel;
+  background-color: #2e2e2e;
+}
+
+.dark-theme .container__content {
+  grid-area: content;
+  background-color: #6e6e6e;
+}
+
+.dark-theme .header-container {
+  display: grid;
+  grid-template-areas: "logo menu-items";
+  grid-template-columns: 16rem 1fr;
+  width: 100vw;
+  height: 6rem;
+}
+
+.dark-theme .header-container__logo-wrapper {
+  grid-area: logo;
+}
+
+.dark-theme .header-container__logo-wrapper--logo {
+  margin: 1rem;
+  width: 14rem;
+  height: 4rem;
+}
+
+.dark-theme .header-container__menu-items-wrapper {
+  grid-area: menu-items;
+  display: flex;
+}
+
+.dark-theme .header-container__menu-items-wrapper--menu-item {
+  background-color: black;
 }
 
 /*# sourceMappingURL=styles.css.map*/
