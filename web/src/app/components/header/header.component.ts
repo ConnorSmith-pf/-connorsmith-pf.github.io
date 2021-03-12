@@ -6,25 +6,25 @@ import { SubscriptionsDirective } from 'src/app/directives/subscriptions.directi
 import { Theme } from 'src/app/enums/themes.enum';
 
 @Component({
-  selector: 'pf-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+	selector: 'pf-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent extends SubscriptionsDirective implements OnInit {
   public headerButtons: Array<HeaderButton> = [];
   public darkThemeSelected: boolean;
 
   constructor(public readonly themingService: ThemingService, private readonly headerService: HeaderService) {
-    super();
+  	super();
   }
 
   public ngOnInit(): void {
-    this.headerButtons = this.headerService.HeaderButtons;
+  	this.headerButtons = this.headerService.HeaderButtons;
 
-    this.subscriptions.push(
-      this.themingService.selectedTheme$.subscribe((selectedTheme: Theme) => {
-        this.darkThemeSelected = selectedTheme === Theme.DARK_MODE;
-      })
-    );
+  	this.subscriptions.push(
+  		this.themingService.selectedTheme$.subscribe((selectedTheme: Theme) => {
+  			this.darkThemeSelected = selectedTheme === Theme.DARK_MODE;
+  		})
+  	);
   }
 }

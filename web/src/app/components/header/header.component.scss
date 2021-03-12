@@ -8,7 +8,6 @@
 
     &__logo-wrapper {
       grid-area: logo;
-
       &--logo {
         margin: 1rem;
         width: 14rem;
@@ -16,12 +15,31 @@
       }
     }
 
-    &__menu-items {
+    &__menu-items { 
       &--left {
         grid-area: menu-items-left;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 2rem;
+
+        & > *:not(:last-child) {
+          padding-right: 2rem;
+        }
       }
+
       &--right {
         grid-area: menu-items-right;
+        font-family: inherit;
+        font-size: inherit;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 2rem;
+
+        & > *:not(:last-child) {
+          padding-right: 2rem;
+        }
       }
     }
   }
