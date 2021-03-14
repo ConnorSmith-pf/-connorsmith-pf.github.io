@@ -1,46 +1,46 @@
 @mixin header-styles($theme) {
-  .header-container {
-    display: grid;
-    grid-template-areas: 'logo menu-items-left menu-items-right';
-    grid-template-columns: 20rem 1fr min-content;
-    width: 100vw;
-    height: 100%;
+	.header-container {
+		display: grid;
+		grid-template-areas: 'logo menu-items-left menu-items-right';
+		grid-template-columns: 20rem 1fr min-content;
+		width: 100vw;
+		height: 100%;
 
-    &__logo-wrapper {
-      grid-area: logo;
-      &--logo {
-        margin: 1rem;
-        width: 14rem;
-        height: 4rem;
-      }
-    }
+		&__logo-wrapper {
+			grid-area: logo;
+			&--logo {
+				margin: 1rem;
+				width: 14rem;
+				height: 4rem;
+			}
+		}
 
-    &__menu-items { 
-      &--left {
-        grid-area: menu-items-left;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        margin: 0 2rem;
+		&__menu-items { 
+			&--left {
+				grid-area: menu-items-left;
+				display: flex;
+				align-items: center;
+				height: 100%;
+				margin: 0 2rem;
 
-        & > *:not(:last-child) {
-          padding-right: 2rem;
-        }
-      }
+				& > *:not(:last-child) {
+					padding-right: 2rem;
+				}
+			}
 
-      &--right {
-        grid-area: menu-items-right;
-        font-family: inherit;
-        font-size: inherit;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0 2rem;
+			&--right {
+				grid-area: menu-items-right;
+				font-family: inherit;
+				font-size: inherit;
+				display: flex;
+				align-items: center;
+				height: 100%;
+				padding: 0 2rem;
 
-        & > *:not(:last-child) {
-          padding-right: 2rem;
-        }
-      }
-    }
-  }
+				& > *:not(:last-child) {
+					padding-right: 2rem;
+				}
+			}
+		}
+	}
 }

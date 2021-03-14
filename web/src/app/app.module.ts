@@ -7,9 +7,9 @@ import { RootModule } from './components/root/root.module';
 import { SubscriptionsDirective } from './directives/subscriptions.directive';
 
 @NgModule({
-  declarations: [SubscriptionsDirective],
-  imports: [BrowserModule, BrowserAnimationsModule, RootModule],
-  providers: [],
-  bootstrap: [RootComponent],
+	declarations: [SubscriptionsDirective],
+	imports: [BrowserModule, BrowserAnimationsModule, RootModule],
+	providers: [],
+	bootstrap: [RootComponent],
 })
 export class AppModule {}

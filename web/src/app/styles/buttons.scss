@@ -1,2 +1,14 @@
 @mixin button-styles($theme) {
+	.btn {
+		padding: 1.5rem 3rem;
+		&-primary {
+			background-color: mat-color($primary);
+		}
+		&-accent {
+			background-color: mat-color($accent);
+		}
+		&-warning {
+			background-color: mat-color($warn);
+		}
+	}
 }

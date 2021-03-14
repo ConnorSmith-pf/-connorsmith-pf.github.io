@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [RootComponent],
-  imports: [FormsModule, RouterModule, CommonModule, HeaderModule, LeftSidePanelModule],
+	declarations: [RootComponent],
+	imports: [FormsModule, RouterModule, CommonModule, HeaderModule, LeftSidePanelModule],
 })
 export class RootModule {}

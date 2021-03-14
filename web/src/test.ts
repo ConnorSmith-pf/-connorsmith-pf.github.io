@@ -10,7 +10,7 @@ declare const require: {
     deep?: boolean,
     filter?: RegExp
   ): {
-    keys(): string[];
+    keys(): Array<string>;
     <T>(id: string): T;
   };
 };

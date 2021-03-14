@@ -23,7 +23,7 @@ export class HeaderComponent extends SubscriptionsDirective implements OnInit {
 
   	this.subscriptions.push(
   		this.themingService.selectedTheme$.subscribe((selectedTheme: Theme) => {
-  			this.darkThemeSelected = selectedTheme === Theme.DARK_MODE;
+  			this.darkThemeSelected = selectedTheme === Theme.darkMode;
   		})
   	);
   }

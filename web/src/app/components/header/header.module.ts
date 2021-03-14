@@ -6,8 +6,8 @@ import { HeaderComponent } from './header.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
-  declarations: [HeaderComponent],
-  imports: [CommonModule, FormsModule, MatSlideToggleModule],
-  exports: [HeaderComponent],
+	declarations: [HeaderComponent],
+	imports: [CommonModule, FormsModule, MatSlideToggleModule],
+	exports: [HeaderComponent],
 })
 export class HeaderModule {}

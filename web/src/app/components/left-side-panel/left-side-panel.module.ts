@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { LeftSidePanelComponent } from './left-side-panel.component';
 
 @NgModule({
-  declarations: [LeftSidePanelComponent],
-  imports: [CommonModule, FormsModule],
-  exports: [LeftSidePanelComponent],
+	declarations: [LeftSidePanelComponent],
+	imports: [CommonModule, FormsModule],
+	exports: [LeftSidePanelComponent],
 })
 export class LeftSidePanelModule {}
