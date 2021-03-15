@@ -1,15 +1,18 @@
-$dark: (
+@import './dark-accent.scss';
+@import './dark-warn.scss';
+
+$dark-primary: (
 	type: primary,
-	50: #6e6e6e,
+	50: #6d6d6d,
 	100: #4f4f50,
 	200: #434444,
 	300: #373737,
 	400: #2e2e2e,
-	500: #222222,
+	500: #424242,
 	600: #1e1e1e,
 	700: #141414,
 	800: #191919,
-	900: #0c0c0c,
+	900: #1b1b1b,
 	A100: #e93b3b,
 	A200: #d91818,
 	A400: #bf0000,

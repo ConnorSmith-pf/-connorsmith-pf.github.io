@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+@import './light/light-palette.scss';
+@import './dark/dark-palette.scss';
+
+@include mat-core(mat-typography-config('Arial'));
+
+// Light theme, mat-palette($palette-name, main, lighter, darker)
+// 500, 100, 700 are default values for main, lighter and darker params
+$light-primary: mat-palette($light-primary, 500, 100, 700);
+$light-accent: mat-palette($light-accent, 200, 100, 700);
+$light-warn: mat-palette($light-warn, 100, 100, 100);
+$light-theme: mat-light-theme(
+	(
+		color: (
+			primary: $light-primary,
+			accent: $light-accent,
+			warn: $light-warn,
+			is-dark: false,
+		),
+	)
+);
+
+// Dark theme
+$dark-primary: mat-palette($dark-primary, 500, 100, 700);
+$dark-accent: mat-palette($dark-accent, 400, 200, 700);
+$dark-warn: mat-palette($dark-warn, 210, 210, 210);
+$dark-theme: mat-light-theme(
+	(
+		color: (
+			primary: $dark-primary,
+			accent: $dark-accent,
+			warn: $dark-warn,
+			is-dark: true,
+		),
+	)
+);
