@@ -12,13 +12,22 @@ export class HeaderService {
 			id: 'home',
 			name: 'home',
 			displayName: 'Home',
+			class: 'btn btn-primary btn-header'
 		};
 		const aboutMeButton: HeaderButton = {
 			id: 'aboutMe',
 			name: 'aboutMe',
 			displayName: 'About Me',
+			class: 'btn btn-accent btn-header'
 		};
-		const repositoryChildButtons: Array<HeaderButton> = [
+		const repositoriesButton: HeaderButton = {
+			id: 'repositories',
+			name: 'repositories',
+			displayName: 'Repositories',
+			class: 'btn btn-warning btn-header',
+			childButtons: [],
+		};
+		repositoriesButton.childButtons.push(...[
 			{
 				id: 'contacts-ngrx',
 				name: 'contacts-ngrx',
@@ -34,13 +43,7 @@ export class HeaderService {
 				name: 'shopping-cart-ngxs',
 				displayName: 'Shopping Cart - NGXS',
 			},
-		];
-		const repositoriesButton: HeaderButton = {
-			id: 'repositories',
-			name: 'repositories',
-			displayName: 'Repositories',
-			childButtons: repositoryChildButtons,
-		};
+		]);
 
 		return [homeButton, aboutMeButton, repositoriesButton];
 	}

@@ -1,6 +1,12 @@
 @mixin button-styles($theme) {
 	.btn {
-		padding: 1.5rem 3rem;
+		display: inline-flex;
+		padding: 0;
+		outline: 0;
+		border: 0;
+		justify-content: center;
+		align-items: center;
+
 		&-primary {
 			background-color: mat-color($primary);
 		}
@@ -9,6 +15,16 @@
 		}
 		&-warning {
 			background-color: mat-color($warn);
+		}
+
+		&-header {
+			height: 100%;
+			padding: 1rem;
+		}
+
+		&-side-panel {
+			width: 100%;
+			padding: 1rem;
 		}
 	}
 }

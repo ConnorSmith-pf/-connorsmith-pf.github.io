@@ -1,8 +1,8 @@
 @mixin left-side-panel-styles($theme) {
 	.left-side-panel-container {
+		font-size: 1.4rem;
 		display: flex;
 		flex-direction: column;
-		font-size: 1.4rem;
 
 		& > .btn {
 			&:is(:first-child) {

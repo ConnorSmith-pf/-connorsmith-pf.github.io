@@ -9,6 +9,7 @@
 	<div class="header-container__menu-items--left" *ngIf="headerButtons">
 		<button
 			*ngFor="let headerButton of headerButtons"
+			[class]="headerButton.class"
 			(click)="(headerButton.onClick)"
 		>
 			{{ headerButton.displayName }}
