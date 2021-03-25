@@ -1,32 +1,15 @@
 @mixin header-styles($theme) {
 	.header-container {
-		font-size: 1.4rem;
-		display: grid;
-		grid-template-areas: 'logo menu-items-left menu-items-right';
-		grid-template-columns: 20rem 1fr min-content;
 		height: 100%;
+		width: 100%;
+	}
 
-		&__logo-wrapper {
-			grid-area: logo;
+	.toolbar {
+		height: 100%;
+	}
 
-			&--logo {
-				margin: 1rem;
-				width: 14rem;
-				height: 4rem;
-			}
-		}
-
-		&__menu-items {
-			&--left {
-				grid-area: menu-items-left;
-			}
-
-			&--right {
-				grid-area: menu-items-right;
-				display: flex;
-				align-items: center;
-				padding: 0 2rem;
-			}
-		}
+	.spacer {
+		display: flex;
+		flex: 1 1 auto;
 	}
 }

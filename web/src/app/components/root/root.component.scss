@@ -15,12 +15,10 @@
 			grid-area: header;
 			height: $header-max-height;
 			max-height: $header-max-height;
-			background-color: mat-color($primary);
 		}
 
 		&__left-side-panel {
 			grid-area: left-side-panel;
-			background-color: mat-color($accent);
 		}
 
 		&__content {

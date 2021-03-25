@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from '../components/main/main.component';
+import { AboutMeComponent } from '../components/main/about-me/about-me.component';
+
+const routes: Routes = [
+	{ path: 'AboutMe', component: AboutMeComponent },
+  { path: '**', component: AboutMeComponent },
+];
 
 @NgModule({
-	imports: [RouterModule.forRoot(getRoutes())],
-	exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRouterModule {
-
-}
-
-// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-export function getRoutes(): Routes {
-	return [
-		{path: '', component: MainComponent},
-		{path: '**', component: MainComponent}
-	];
 }

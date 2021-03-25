@@ -6,9 +6,10 @@ import { HeaderModule } from '../header/header.module';
 import { LeftSidePanelModule } from '../left-side-panel/left-side-panel.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MainComponent } from '../main/main.component';
 
 @NgModule({
-	declarations: [RootComponent],
+	declarations: [RootComponent, MainComponent],
 	imports: [FormsModule, RouterModule, CommonModule, HeaderModule, LeftSidePanelModule],
 })
 export class RootModule {}

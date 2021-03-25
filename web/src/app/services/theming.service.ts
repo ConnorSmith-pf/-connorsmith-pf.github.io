@@ -1,4 +1,4 @@
-import { Injectable, ApplicationRef } from '@angular/core';
+import { ApplicationRef, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Theme } from '../enums/themes.enum';
 import localForage from 'localforage';
@@ -22,6 +22,18 @@ export class ThemingService {
   	localForage.getItem('use-system-theme', (err: any, value: boolean) => {
   		this.setUseSystemTheme(value ?? true);
   	});
+  }
+
+  public get lightTheme(): Theme {
+  	return Theme.lightMode;
+  }
+
+  public get darkTheme(): Theme {
+  	return Theme.darkMode;
+  }
+
+  public get systemTheme(): Theme {
+	  return Theme.system;
   }
 
   public toggleTheme(): void {

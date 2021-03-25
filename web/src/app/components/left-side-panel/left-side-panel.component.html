@@ -1,5 +1,12 @@
-<nav class="left-side-panel-container" *ngIf="buttons">
-	<button class="btn btn-side-panel btn-primary">primary</button>
-	<button class="btn btn-side-panel btn-accent">accent</button>
-	<button class="btn btn-side-panel btn-warning">warning</button>
-</nav>
+<mat-sidenav [opened]='true' color='accent'>
+  <mat-nav-list>
+    <a mat-list-item routerLink='AboutMe'>
+      <mat-icon>dashboard</mat-icon>
+      About Me
+    </a>
+    <a mat-list-item routerLink='AboutMe'>
+      <mat-icon>dashboard</mat-icon>
+      About Me
+    </a>
+  </mat-nav-list>
+</mat-sidenav>
