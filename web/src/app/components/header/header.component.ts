@@ -12,7 +12,7 @@ import { Theme } from 'src/app/enums/themes.enum';
 })
 export class HeaderComponent extends SubscriptionsDirective implements OnInit {
   public headerButtons: Array<HeaderButton> = [];
-  public darkThemeSelected: boolean;
+  public systemThemeSelected: boolean;
 
   constructor(public readonly themingService: ThemingService, private readonly headerService: HeaderService) {
   	super();
@@ -22,8 +22,8 @@ export class HeaderComponent extends SubscriptionsDirective implements OnInit {
   	this.headerButtons = this.headerService.HeaderButtons;
 
   	this.subscriptions.push(
-  		this.themingService.selectedTheme$.subscribe((selectedTheme: Theme) => {
-  			this.darkThemeSelected = selectedTheme === Theme.darkMode;
+  		this.themingService.useSystemTheme$.subscribe((useSystemTheme: boolean) => {
+  			this.systemThemeSelected = useSystemTheme
   		})
   	);
   }

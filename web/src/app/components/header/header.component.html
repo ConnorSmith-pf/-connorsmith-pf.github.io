@@ -1,82 +1,26 @@
-<header class="header-container">
-	<mat-toolbar class="toolbar">
-		<button
-			mat-icon-button
-			class="example-icon"
-			aria-label="Example icon-button with menu icon"
-		>
-			<mat-icon>menu</mat-icon>
-		</button>
-		<span>My App</span>
-		<span class="spacer"></span>
-		<button
-			mat-icon-button
-			class="example-icon favorite-icon"
-			aria-label="Example icon-button with heart icon"
-		>
-			<mat-icon>favorite</mat-icon>
-		</button>
-		<button
-			mat-icon-button
-			class="example-icon"
-			aria-label="Example icon-button with share icon"
-		>
-			<mat-icon>share</mat-icon>
-		</button>
-	</mat-toolbar>
-	<!-- <div class="header-container__logo-wrapper">
-		<img
-			src="assets/images/logo.jpg"
-			alt=""
-			class="header-container__logo-wrapper--logo"
-		/>
-	</div>
-	<div class="header-container__menu-items--left" *ngIf="headerButtons">
-		<button
-			*ngFor="let headerButton of headerButtons"
-			[class]="headerButton.class"
-			(click)="(headerButton.onClick)"
-		>
-			{{ headerButton.displayName }}
-		</button>
-	</div>
-	<div class="header-container__menu-items--right">
-		<mat-button-toggle-group
-			[value]="themingService.selectedTheme$ | async"
-		>
-			<mat-button-toggle
-				[value]="themingService.lightTheme"
-				[disabled]="themingService.useSystemTheme$ | async"
-				(click)="themingService.toggleTheme()"
-			>
-				Light Theme
-			</mat-button-toggle>
-			<mat-button-toggle
-				[value]="themingService.darkTheme"
-				[disabled]="themingService.useSystemTheme$ | async"
-				(click)="themingService.toggleTheme()"
-			>
-				Dark Theme
-			</mat-button-toggle>
-			<mat-button-toggle
-				[value]="themingService.systemTheme"
-				(click)="themingService.toggleUseSystemTheme()"
-			>
-				Use System Theme
-			</mat-button-toggle>
-		</mat-button-toggle-group> -->
-	<!-- <mat-slide-toggle
-			[disabled]="themingService.useSystemTheme$ | async"
-			[checked]="darkThemeSelected"
-			(change)="themingService.toggleTheme()"
-		>
-			Dark Theme
-		</mat-slide-toggle>
-		<mat-slide-toggle
-			[checked]="themingService.useSystemTheme$ | async"
-			(change)="themingService.toggleUseSystemTheme()"
-		>
-			Use System Theme
-		</mat-slide-toggle> 
-	</div>-->
+<header class='header-container'>
+  <mat-toolbar class='toolbar' color='primary'>
+    <button
+      mat-icon-button
+      class='example-icon'
+      aria-label='Example icon-button with menu icon'
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My Portfolio</span>
+    <span class='spacer'></span>
+    <button
+      *ngIf='!systemThemeSelected'
+      mat-icon-button
+      (click)='themingService.toggleTheme()'
+    >
+      <mat-icon>dark_mode</mat-icon>
+    </button>
+    <mat-slide-toggle
+      [checked]='systemThemeSelected'
+      (change)='themingService.toggleUseSystemTheme()'
+    >
+      Use System Theme
+    </mat-slide-toggle>
+  </mat-toolbar>
 </header>

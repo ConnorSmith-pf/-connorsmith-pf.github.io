@@ -6,10 +6,13 @@ import { HeaderComponent } from './header.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
-	declarations: [HeaderComponent],
-	imports: [CommonModule, FormsModule, MatButtonToggleModule, MatToolbarModule, MatIconModule],
-	exports: [HeaderComponent],
+  declarations: [HeaderComponent],
+  imports: [CommonModule, FormsModule, MatButtonToggleModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSlideToggleModule],
+  exports: [HeaderComponent],
 })
-export class HeaderModule {}
+export class HeaderModule {
+}

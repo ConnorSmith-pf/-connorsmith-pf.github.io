@@ -1,5 +1,5 @@
 {
-    "rules": {
+  "rules": {
     "for-direction": false,
     "no-constant-condition": true,
     "no-control-regex": true,
@@ -48,15 +48,29 @@
     "no-reference": true,
     "no-unnecessary-type-assertion": false,
     "no-var-requires": true,
-    "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
+    "only-arrow-functions": [
+      true,
+      "allow-declarations",
+      "allow-named-functions"
+    ],
     "prefer-for-of": true,
     "promise-function-async": false,
-    "typedef": [true, "member-variable-declaration", "parameter", "property-declaration", "variable-declaration", "call-signature"],
+    "typedef": [
+      true,
+      "member-variable-declaration",
+      "parameter",
+      "property-declaration",
+      "variable-declaration",
+      "call-signature"
+    ],
     "await-promise": false,
     "unified-signatures": false,
     "ban-comma-operator": true,
     "ban": false,
-    "curly": [true, "ignore-same-line"],
+    "curly": [
+      true,
+      "ignore-same-line"
+    ],
     "forin": true,
     "function-constructor": false,
     "import-blacklist": false,
@@ -103,8 +117,14 @@
     "triple-equals": true,
     "unnecessary-constructor": true,
     "use-isnan": true,
-    "cyclomatic-complexity": [true, 12],
-    "max-classes-per-file": [true, 1],
+    "cyclomatic-complexity": [
+      true,
+      12
+    ],
+    "max-classes-per-file": [
+      true,
+      1
+    ],
     "max-file-line-count": false,
     "no-default-export": false,
     "no-duplicate-imports": true,
@@ -113,7 +133,10 @@
     "object-literal-sort-keys": false,
     "prefer-const": true,
     "prefer-readonly": true,
-    "array-type": [true, "generic"],
+    "array-type": [
+      true,
+      "generic"
+    ],
     "arrow-return-shorthand": true,
     "binary-expression-operand-order": true,
     "callable-types": false,
@@ -136,10 +159,23 @@
     "no-reference-import": true,
     "no-unnecessary-callback-wrapper": false,
     "no-unnecessary-initializer": true,
-    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
     "object-literal-shorthand": true,
-    "one-line": [true, "check-catch", "check-finally", "check-else", "check-open-brace", "check-whitespace"],
-    "one-variable-per-declaration": [true, "ignore-for-loop"],
+    "one-line": [
+      true,
+      "check-catch",
+      "check-finally",
+      "check-else",
+      "check-open-brace",
+      "check-whitespace"
+    ],
+    "one-variable-per-declaration": [
+      true,
+      "ignore-for-loop"
+    ],
     "ordered-imports": false,
     "prefer-function-over-method": false,
     "prefer-method-signature": false,
@@ -152,15 +188,27 @@
     "type-literal-delimiter": true,
     "unnecessary-else": true,
     "variable-name": {
-      "options": ["ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ]
     },
     "align": false,
-    "arrow-parens": [true, "ban-single-arg-parens"],
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
     "eofline": {
       "severity": "error"
     },
     "import-spacing": true,
-    "indent": [true, "spaces", 4],
+    "indent": [
+      true,
+      "spaces",
+      4
+    ],
     "jsdoc-format": false,
     "linebreak-style": false,
     "max-line-length": false,
@@ -170,8 +218,14 @@
     "no-irregular-whitespace": true,
     "no-trailing-whitespace": true,
     "number-literal-format": true,
-    "quotemark": [true, "single"],
-    "semicolon": [true, "always"],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "always"
+    ],
     "trailing-comma": false,
     "typedef-whitespace": [
       true,

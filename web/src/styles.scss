@@ -2,10 +2,12 @@
 @import 'app/styles/theming/theme.scss';
 
 @import 'app/styles/buttons.scss';
+@import 'app/styles/font.scss';
 
 @import 'app/components/root/root.component.scss';
 @import 'app/components/header/header.component.scss';
 @import 'app/components/left-side-panel/left-side-panel.component.scss';
+@import 'app/components/main/main.component.scss';
 
 $primary: null;
 $accent: null;
@@ -17,10 +19,12 @@ $warn: null;
 	$warn: map-get($theme, warn) !global;
 
 	@include button-styles($theme);
+	@include font-styles($theme);
 
 	@include root-styles($theme);
 	@include header-styles($theme);
 	@include left-side-panel-styles($theme);
+  @include main-styles($theme);
 }
 
 @include angular-material-theme($light-theme);

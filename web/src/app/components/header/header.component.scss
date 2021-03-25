@@ -1,15 +1,19 @@
 @mixin header-styles($theme) {
-	.header-container {
-		height: 100%;
-		width: 100%;
-	}
+  .header-container {
+    height: 100%;
+    width: 100%;
+  }
 
-	.toolbar {
-		height: 100%;
-	}
+  .toolbar {
+    height: 100%;
+  }
 
-	.spacer {
-		display: flex;
-		flex: 1 1 auto;
-	}
+  .spacer {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  .light {
+    filter: contrast(4) invert(1);
+  }
 }
